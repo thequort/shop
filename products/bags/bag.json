@@ -1,0 +1,18 @@
+[
+  {
+    "id": "bag-001",
+    "name": "Cute Bear Backpacks",
+    "category": "bags",
+    "image": "../../images/bags/bearbag.jpg",
+    "description": "These adorable bear backpacks are perfect for carrying your daily essentials. Made from durable fabric with a cute paw print design.",
+    "options": [
+      {
+        "size": "20x7x20 cm",
+        "price": 850.00,
+        "currency": "BDT"
+      },
+      ...
+    ]
+  },
+  ...
+]
