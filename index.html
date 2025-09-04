@@ -3,378 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>téQourt</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #f5f5f7;
-            color: #1d1d1f;
-        }
-
-        /* Navbar Styles */
-        .navbar {
-            background: rgba(251, 251, 253, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            padding: 12px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-left {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-placeholder {
-            height: 32px;
-            width: auto;
-            padding: 0 15px;
-            background: #007aff;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.3s ease;
-            text-decoration: none;
-        }
-
-        .logo-placeholder:hover {
-            opacity: 0.8;
-        }
-
-        .logo-placeholder img {
-            height: 100%;
-            width: auto;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .nav-icon {
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-            transition: opacity 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .nav-icon:hover {
-            opacity: 0.7;
-        }
-
-        .search-icon, .bag-icon {
-            stroke: #1d1d1f;
-            stroke-width: 1.5;
-            fill: none;
-        }
-
-        .hamburger {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .hamburger span {
-            width: 18px;
-            height: 2px;
-            background: #1d1d1f;
-            transition: all 0.3s ease;
-        }
-
-        /* Main Content */
-        .hero {
-            padding: 80px 20px;
-            text-align: center;
-            background: linear-gradient(135deg, #434343 0%, #000000 100%);
-            color: white;
-            min-height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            letter-spacing: -0.02em;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
-            max-width: 600px;
-        }
-
-        .cta-button {
-            background: #007aff;
-            border: none;
-            color: white;
-            padding: 14px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .cta-button:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-
-        .products {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .products h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 60px;
-            color: #1d1d1f;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-        
-        .product-info {
-            padding: 30px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-card h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #1d1d1f;
-        }
-
-        .product-card p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-        
-        .product-price {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1d1d1f;
-            margin-bottom: 20px;
-        }
-
-        .buy-button {
-             background: #007aff;
-            border: none;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: inline-block;
-        }
-        
-        .buy-button:hover {
-            background: #0056b3;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-container {
-                padding: 0 10px;
-            }
-            .logo-placeholder { margin-right: 20px; }
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1rem; }
-            .products h2 { font-size: 2rem; }
-            .product-grid { grid-template-columns: 1fr; gap: 30px; }
-        }
-    </style>
+    <title>Pre-Order Now</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-left">
-                <a href="#" class="logo-placeholder">
-                    <img src="logo.jpg" alt="téQourt logo">
-                </a>
-            </div>
-            <div class="nav-right">
-                <div class="nav-icon">
-                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+
+    <header class="main-header">
+        <a href="/" class="logo">
+            <img src="/logo.png" alt="Pre-Order Now Logo">
+        </a>
+        <nav class="main-nav">
+            </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>Pre-order anything, pay flexibly</h1>
+        </section>
+
+        <section id="products-section" class="products-section">
+            <h2>Action Figures</h2>
+            <div id="product-container" class="product-container">
                 </div>
-                <div class="nav-icon">
-                    <svg class="bag-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="m16 10a4 4 0 0 1-8 0"/></svg>
-                </div>
-                <div class="nav-icon hamburger">
-                    <span></span><span></span><span></span>
-                </div>
-            </div>
+            <p class="delivery-info">Delivery within 1 month.</p>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="social-links">
+            <a href="https://wa.me/8801540649467?text=Hi%2C%20I%27m%20interested%20in%20pre-ordering!" target="_blank" class="social-link whatsapp">WhatsApp</a>
+            <a href="https://www.facebook.com/your-profile-name" target="_blank" class="social-link facebook">Facebook</a>
         </div>
-    </nav>
+    </footer>
 
-    <section class="hero">
-        <h1>Collectible Figures & Premium Bags</h1>
-        <p>Discover exclusive action figures and stylish, durable bags for every adventure. Your next favorite item awaits.</p>
-        <a href="#products" class="cta-button">Shop Now</a>
-    </section>
-
-    <section class="products" id="products">
-        <h2>Our Collection</h2>
-        <div class="product-grid" id="product-grid"></div>
-    </section>
-
-    <script>
-        // --- 1. PRODUCT DATA ---
-        // This is where you manage your products.
-        // To add a new product, just copy one of the blocks and change the details.
-        // I'm using placeholder images from `placehold.co`. You should replace these URLs with your own product images.
-        const products = [
-            {
-                id: 1,
-                name: "Cyber Ninja Action Figure",
-                description: "A highly detailed, articulated cyber ninja figure with interchangeable weapons. Perfect for collectors.",
-                price: "$49.99",
-                imageUrl: "https://placehold.co/600x400/000000/FFFFFF/png?text=Action+Figure"
-            },
-            {
-                id: 2,
-                name: "Adventurer's Canvas Backpack",
-                description: "A rugged and stylish backpack made from durable canvas, with multiple compartments for all your gear.",
-                price: "$74.99",
-                imageUrl: "https://placehold.co/600x400/5f4b32/FFFFFF/png?text=Backpack"
-            },
-            {
-                id: 3,
-                name: "Space Marine Captain",
-                description: "Lead your troops into battle with this 7-inch scale Space Marine Captain, featuring 22 points of articulation.",
-                price: "$59.99",
-                imageUrl: "https://placehold.co/600x400/1a2a4f/FFFFFF/png?text=Space+Marine"
-            },
-            {
-                id: 4,
-                name: "Leather Messenger Bag",
-                description: "A classic, high-quality leather messenger bag. Timeless design perfect for work or casual use.",
-                price: "$129.99",
-                imageUrl: "https://placehold.co/600x400/8b4513/FFFFFF/png?text=Messenger+Bag"
-            }
-        ];
-
-        // --- 2. YOUR WHATSAPP NUMBER ---
-        const whatsappNumber = "8801540649467";
-
-        // --- 3. FUNCTION TO GENERATE PRODUCT CARDS ---
-        function generateProductCards() {
-            const productGrid = document.getElementById('product-grid');
-            
-            // Clear any existing content in the grid
-            productGrid.innerHTML = '';
-
-            // Loop through each product in our data array
-            products.forEach(product => {
-                // Create the HTML for a single product card
-                const cardHTML = `
-                    <div class="product-card">
-                        <img src="${product.imageUrl}" alt="${product.name}" class="product-image">
-                        <div class="product-info">
-                            <h3>${product.name}</h3>
-                            <p>${product.description}</p>
-                            <div class="product-price">${product.price}</div>
-                            <a href="#" class="buy-button" onclick="sendWhatsAppMessage('${product.name}')">Order via WhatsApp</a>
-                        </div>
-                    </div>
-                `;
-                // Add the new card's HTML to the grid
-                productGrid.innerHTML += cardHTML;
-            });
-        }
-
-        // --- 4. A SIMPLE FUNCTION FOR THE WHATSAPP BUTTON ---
-        function sendWhatsAppMessage(productName) {
-            // Construct the pre-filled message. It's important to URL-encode the text.
-            const message = encodeURIComponent(`Hi, I'd like to order the product: ${productName}. Please let me know how I can proceed!`);
-            
-            // Construct the full WhatsApp URL.
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
-
-            // Redirect the user to the WhatsApp URL.
-            window.open(whatsappUrl, '_blank');
-        }
-
-        // --- 5. RUN THE SCRIPT WHEN THE PAGE LOADS ---
-        // This ensures our product cards are created as soon as the page is ready.
-        window.onload = () => {
-            generateProductCards();
-        };
-
-        // --- Your existing JavaScript for interactivity ---
-        const hamburger = document.querySelector('.hamburger');
-        hamburger.addEventListener('click', () => {
-            // A simple toggle effect for the menu icon
-            hamburger.style.transform = hamburger.style.transform === 'rotate(90deg)' ? 'rotate(0deg)' : 'rotate(90deg)';
-        });
-
-        document.querySelector('.cta-button').addEventListener('click', (e) => {
-            e.preventDefault();
-            document.querySelector('#products').scrollIntoView({ behavior: 'smooth' });
-        });
-    </script>
+    <script src="action-figures.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
