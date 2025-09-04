@@ -1,23 +1,22 @@
-# This tells the CMS what service to use for the backend. In our case, it's GitHub.
 backend:
   name: github
-  repo: theqourt/shop # Your GitHub username and repo name
-  branch: main # Or 'master' if your main branch is called that
-  app_id: Ov23liCvfTiF3o90pz8B # This is the Client ID from the GitHub OAuth App you created
+  repo: theqourt/shop
+  branch: main
+  app_id: Ov23liCvfTiF3o90pz8B # Your Client ID
+  # This section tells the CMS to use a different login method.
+  auth_type: pkce
+  auth_endpoint: https://github.com/login/oauth/authorize
+  base_url: https://github.com
+  site_url: https://theqourt.github.io/shop/
 
-# This tells the CMS where to save the images you upload.
-media_folder: "assets/images" # The local folder for images in your repository
-public_folder: "/assets/images" # The public URL path for those images
+media_folder: "assets/images"
+public_folder: "/assets/images"
 
-# This is a collection, which defines a type of content to manage (like "Products").
 collections:
   - name: "products"
     label: "Products"
-    # This is the folder where the CMS will store your product data (as separate files).
     folder: "_products"
-    # This allows you to create new product entries from the admin panel.
     create: true
-    # These are the individual fields for each product entry.
     fields:
       - {label: "Product Name", name: "title", widget: "string"}
       - {label: "Price", name: "price", widget: "string"}
