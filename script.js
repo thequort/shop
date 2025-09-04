@@ -7,7 +7,7 @@ if (typeof actionFigures !== 'undefined' && Array.isArray(actionFigures)) {
     actionFigures.forEach(product => {
         // Create the HTML for a single product card
         const productCard = `
-            <a href="product-details.html?id=${product.id}" class="product-card-link">
+            <a href="product.html?id=${product.id}" class="product-card-link">
                 <div class="product-card">
                     <img src="${product.images[0]}" alt="${product.name}" class="product-image">
                     <div class="product-info">
