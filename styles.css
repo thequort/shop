@@ -41,27 +41,22 @@ a:hover {
 /* Header */
 .main-header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 20px 40px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .logo img {
     height: 40px; /* Adjust as needed */
 }
 
-/* Hero Section */
-.hero-section {
-    text-align: center;
-    padding: 80px 20px;
-    background-color: #fff;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.hero-section h1 {
-    font-size: 3rem;
-    margin: 0;
-    letter-spacing: -0.05em;
+.main-nav a {
+    margin-left: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
 }
 
 /* Products Section */
@@ -76,6 +71,10 @@ a:hover {
     gap: 20px;
     justify-content: center;
     margin-top: 40px;
+}
+
+.product-card-link {
+    text-decoration: none;
 }
 
 .product-card {
