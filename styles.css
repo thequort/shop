@@ -17,7 +17,7 @@ body {
     line-height: 1.6;
 }
 
-h1, h2 {
+h1, h2, h3 {
     font-weight: 700;
 }
 
@@ -31,14 +31,7 @@ a:hover {
     color: var(--link-hover-color);
 }
 
-/* Layout containers */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Header */
+/* Header and Footer */
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -49,7 +42,7 @@ a:hover {
 }
 
 .logo img {
-    height: 40px; /* Adjust as needed */
+    height: 40px;
 }
 
 .main-nav a {
@@ -59,7 +52,74 @@ a:hover {
     font-size: 0.9rem;
 }
 
-/* Products Section */
+.main-footer {
+    padding: 30px;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    background-color: #fff;
+    margin-top: 60px;
+}
+
+.social-links a {
+    margin: 0 15px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* Homepage specific styles */
+.how-it-works-section, .categories-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.step-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    max-width: 300px;
+}
+
+.category-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.category-card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease-in-out;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.category-card h3 {
+    margin: 20px 0;
+}
+
+/* Category Page Styles */
 .products-section {
     padding: 60px 20px;
     text-align: center;
@@ -119,27 +179,6 @@ a:hover {
     font-size: 1.1rem;
     font-weight: 700;
     color: var(--primary-text-color);
-}
-
-/* Footer */
-.main-footer {
-    padding: 30px;
-    text-align: center;
-    border-top: 1px solid var(--border-color);
-    background-color: #fff;
-}
-
-.social-links a {
-    margin: 0 15px;
-    font-size: 1rem;
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
-.delivery-info {
-    margin-top: 20px;
-    color: var(--secondary-text-color);
-    font-size: 0.8rem;
 }
 
 /* Product Detail Page Styles */
@@ -218,4 +257,3 @@ a:hover {
 .pre-order-button:hover {
     background-color: var(--link-hover-color);
 }
-
