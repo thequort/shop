@@ -201,3 +201,11 @@ a:hover {
 .pre-order-button:hover {
     background-color: var(--link-hover-color);
 }
+
+
+/* Styling for the new text-based logo */
+.logo-name h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-text-color);
+}
