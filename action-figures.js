@@ -10,15 +10,6 @@ const actionFigures = [
             "https://via.placeholder.com/300x300.png?text=Spider-Man+3"
         ]
     },
-    {
-        id: "figure-2",
-        name: "Gundam RX-78-2 (Ver. 3.0)",
-        price: "TK 7200",
-        description: "The legendary RX-78-2 Mobile Suit, now in a highly detailed Master Grade version.",
-        images: [
-            "https://via.placeholder.com/300x300.png?text=Gundam+1",
-            "https://via.placeholder.com/300x300.png?text=Gundam+2"
-        ]
-    },
+
     // ... more products
 ];
