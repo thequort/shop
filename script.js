@@ -7,14 +7,14 @@ if (typeof actionFigures !== 'undefined' && Array.isArray(actionFigures)) {
     actionFigures.forEach(product => {
         // Create the HTML for a single product card
         const productCard = `
-            <a href="https://wa.me/8801540649467?text=Hi%2C%20I%27m%20interested%20in%20pre-ordering%20the%20${encodeURIComponent(product.name)}!" target="_blank" class="product-card-link">
+            <a href="product-details.html?id=${product.id}" class="product-card-link">
                 <div class="product-card">
                     <img src="${product.images[0]}" alt="${product.name}" class="product-image">
                     <div class="product-info">
                         <h3>${product.name}</h3>
                         <p>${product.description}</p>
                         <p class="price">${product.price}</p>
-                    </div>
+                </div>
                 </div>
             </a>
         `;
