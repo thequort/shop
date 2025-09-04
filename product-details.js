@@ -36,18 +36,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             thumbnail.addEventListener('click', () => {
                 mainProductImage.src = imageSrc;
-                // Remove 'active' class from all thumbnails
                 document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
-                // Add 'active' class to the clicked thumbnail
                 thumbnail.classList.add('active');
             });
             thumbnailGallery.appendChild(thumbnail);
         });
 
-        // Update the pre-order button link to include the product name
+        // Update the pre-order button link to include the product URL
         preOrderButton.addEventListener('click', () => {
             const productUrl = encodeURIComponent(window.location.href);
-            window.open(`https://wa.me/8801540649467?text=Hi%2C%20I%27m%20interested%20in%20pre-ordering%20the%20${encodeURIComponent(product.name)}!%0A%0AProduct%20Link%3A%20${productUrl}`, '_blank');
+            window.open(`https://wa.me/8801540649467?text=Hello,%20I'd%20like%20to%20pre-order%20the%20${encodeURIComponent(product.name)}!%0A%0AProduct%20Link:%20${productUrl}`, '_blank');
         });
 
     } else {
