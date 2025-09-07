@@ -1,12 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Check if the actionFigures data exists and is an array
-    if (typeof actionFigures !== 'undefined' && Array.isArray(actionFigures)) {
-        const productContainer = document.getElementById('product-container');
-        if (productContainer) {
-            // Loop through each product in the actionFigures array
-            actionFigures.forEach(product => {
+    const productContainer = document.getElementById('product-container');
+
+    if (productContainer) {
+        // Fetch products from Firestore
+        db.collection("products").get().then((querySnapshot) => {
+            if (querySnapshot.empty) {
+                productContainer.innerHTML = '<p>No products to display at this time.</p>';
+                return;
+            }
+            querySnapshot.forEach((doc) => {
+                const product = doc.data();
                 const productCard = `
-                    <a href="product.html?id=${product.id}" class="product-card-link">
+                    <a href="product.html?id=${doc.id}" class="product-card-link">
                         <div class="product-card">
                             <img src="${product.images[0]}" alt="${product.name}" class="product-image">
                             <div class="product-info">
@@ -19,12 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 productContainer.innerHTML += productCard;
             });
-        }
-    } else {
-        const productContainer = document.getElementById('product-container');
-        if (productContainer) {
-            productContainer.innerHTML = '<p>No products to display at this time.</p>';
-        }
+        }).catch((error) => {
+            console.error("Error getting documents: ", error);
+            productContainer.innerHTML = '<p>Error loading products. Please try again later.</p>';
+        });
     }
 
     // Menu Bar Functionality
